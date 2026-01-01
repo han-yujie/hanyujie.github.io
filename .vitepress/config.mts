@@ -8,10 +8,10 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: '作品集', link: '/markdown-examples' }
-      { text: 'AIGC', link: '/markdown-examples' }
-      { text: '创作资源', link: '/markdown-examples' }
-      { text: '博客', link: '/markdown-examples' }
+      { text: '作品集', link: '/markdown-examples' },
+      { text: 'AIGC', link: '/markdown-examples' },
+      { text: '创作资源', link: '/markdown-examples' },
+      { text: '博客', link: '/markdown-examples' },
       { text: '随记', link: '/markdown-examples' }
     ],
 
