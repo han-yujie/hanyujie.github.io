@@ -33,7 +33,7 @@ jobs:
       - name: 构建VitePress静态文件
         run: npm run build
       - name: 上传构建产物（供后续部署使用）
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: .vitepress/dist # 匹配VitePress默认构建目录，避免路径报错
   # 第二步：部署到GitHub Pages
@@ -46,4 +46,4 @@ jobs:
     steps:
       - name: 部署到GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v3
