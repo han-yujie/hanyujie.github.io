@@ -20,9 +20,6 @@ hero:
 features: []  # 清空原有features，防止显示默认内容
 ---
 
-<!-- 主题切换按钮 -->
-<button id="theme-toggle" class="theme-toggle" title="切换主题"></button>
-
 <!-- 精选作品集 -->
 <div class="section-header">
   <h2>精选作品集</h2>
@@ -278,10 +275,10 @@ features: []  # 清空原有features，防止显示默认内容
 }
 
 body {
-  background-color: var(--bg-light);
+  background-color: var(--bg-page);
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* 主题切换按钮（Vue风格） */
@@ -289,21 +286,29 @@ body {
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background: var(--bg-white);
-  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
   border-radius: 8px;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 999;
   transition: var(--transition-smooth);
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-md);
 }
+
 .theme-toggle:hover {
-  border-color: var(--liuli-text-color);
-  box-shadow: var(--shadow-light);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
 }
 
 /* 移除标题锚点#号 */
@@ -330,7 +335,7 @@ a {
   color: inherit;
 }
 
-/* 章节标题（移除灰色线条+绿色短横线） */
+/* 章节标题 */
 .section-header {
   margin-top: 5rem;
   margin-bottom: 2.5rem;
@@ -345,10 +350,8 @@ a {
   color: var(--text-primary);
   position: relative;
   padding-bottom: 0.75rem;
-  border-bottom: none !important; /* 移除灰色下边框 */
-}
-.section-header h2::after {
-  display: none !important; /* 移除绿色短横线 */
+  border-bottom: 2px solid var(--color-primary);
+  transition: var(--transition-smooth);
 }
 
 /* ===== 精选作品集（小标签+悬浮动画一致） ===== */
