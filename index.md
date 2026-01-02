@@ -131,7 +131,7 @@ features: []  # 清空原有features，防止显示默认内容
   <a href="/aigc" class="explore-more-btn">探索更多AIGC创作</a>
 </div>
 
-<!-- 创作资源与工具（去掉AI板块+7个小尺寸+高度减少1/3） -->
+<!-- 创作资源与工具（7个板块+高度优化+按钮调整） -->
 <div class="section-header">
   <h2>创作资源与工具</h2>
 </div>
@@ -196,15 +196,19 @@ features: []  # 清空原有features，防止显示默认内容
 /* ===== 全局样式（Vue风格+主题切换） ===== */
 :root {
   /* 浅色模式（默认） */
-  --vue-primary: #4FC08D; /* Banner按钮主色 */
-  --vue-primary-hover: #3AA373; /* 浅色模式hover */
-  --btn-bg: #4FC08D; /* 浅色模式按钮背景 */
-  --btn-text: #FFFFFF; /* 浅色模式按钮文字 */
-  --btn-hover-bg: #3AA373; /* 浅色模式按钮hover */
+  --vue-primary: #4FC08D; /* Banner品牌按钮色（浏览作品集） */
+  --liuli-text-color: #2C3E50; /* Banner Liuli文案浅色 */
+  --resource-btn-light: #3B82F6; /* Banner创作资源按钮浅色 */
+  --explore-bg: var(--liuli-text-color); /* 探索更多按钮浅色背景 */
+  --explore-text: #F8FAFC; /* 探索更多按钮浅色文字 */
+  --explore-hover: #1E293B; /* 探索更多按钮浅色hover */
+  --download-bg: var(--resource-btn-light); /* 下载按钮浅色背景 */
+  --download-text: #FFFFFF; /* 下载按钮浅色文字 */
+  --download-hover: #2563EB; /* 下载按钮浅色hover */
   --text-primary: #2C3E50;
   --text-secondary: #64748B;
-  --bg-light: #F8FAFC; /* 浅色页面背景 */
-  --bg-white: #FFFFFF; /* 浅色卡片背景 */
+  --bg-light: #F8FAFC;
+  --bg-white: #FFFFFF;
   --border-color: #E2E8F0;
   --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-hover: 0 4px 16px rgba(79, 192, 141, 0.15);
@@ -216,15 +220,17 @@ features: []  # 清空原有features，防止显示默认内容
 
 /* 深色模式（有设计感的黑色，非纯黑） */
 .dark {
-  --vue-primary: #3AA373; /* 深色模式主色 */
-  --vue-primary-hover: #2D8659; /* 深色模式hover */
-  --btn-bg: #3AA373; /* 深色模式按钮背景 */
-  --btn-text: #0A0E17; /* 深色模式按钮文字 */
-  --btn-hover-bg: #2D8659; /* 深色模式按钮hover */
+  --liuli-text-color: #F8FAFC; /* Banner Liuli文案深色 */
+  --explore-bg: var(--liuli-text-color); /* 探索更多按钮深色背景 */
+  --explore-text: #0A0E17; /* 探索更多按钮深色文字 */
+  --explore-hover: #E2E8F0; /* 探索更多按钮深色hover */
+  --download-bg: var(--liuli-text-color); /* 下载按钮深色背景 */
+  --download-text: #0A0E17; /* 下载按钮深色文字 */
+  --download-hover: #E2E8F0; /* 下载按钮深色hover */
   --text-primary: #F8FAFC;
   --text-secondary: #94A3B8;
-  --bg-light: #0A0E17; /* 有设计感的黑（带蓝灰调） */
-  --bg-white: #121826; /* 深色卡片背景（层次黑） */
+  --bg-light: #0A0E17;
+  --bg-white: #121826;
   --border-color: #1F2937;
   --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-hover: 0 4px 16px rgba(58, 163, 115, 0.25);
@@ -258,7 +264,7 @@ body {
   transition: var(--transition-smooth);
 }
 .theme-toggle:hover {
-  border-color: var(--vue-primary);
+  border-color: var(--liuli-text-color);
   box-shadow: var(--shadow-light);
 }
 
@@ -307,7 +313,7 @@ a {
   display: none !important; /* 移除绿色短横线 */
 }
 
-/* ===== 精选作品集（小标签+悬浮动画与工具板块一致） ===== */
+/* ===== 精选作品集（小标签+悬浮动画一致） ===== */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -327,11 +333,10 @@ a {
   transition: var(--transition-smooth);
   position: relative;
 }
-/* 悬浮动画（与工具板块一致） */
 .portfolio-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--vue-primary);
+  border-color: var(--liuli-text-color);
 }
 .portfolio-card::before {
   content: '';
@@ -340,7 +345,7 @@ a {
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--vue-primary);
+  background: var(--liuli-text-color);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -365,11 +370,10 @@ a {
   flex-wrap: wrap;
   gap: 0.4rem;
 }
-/* 小标签样式（无按钮感+主题适配） */
 .tag {
-  padding: 0.2rem 0.6rem; /* 缩小尺寸，无按钮感 */
+  padding: 0.2rem 0.6rem;
   border-radius: 12px;
-  font-size: 0.7rem; /* 小字体 */
+  font-size: 0.7rem;
   font-weight: 500;
   background-color: var(--tag-bg);
   color: var(--tag-text);
@@ -380,10 +384,10 @@ a {
   opacity: 0.9;
 }
 
-/* ===== AIGC实时创作（高度翻倍+三行+统一悬浮动画） ===== */
+/* ===== AIGC实时创作（高度翻倍+三行+悬浮一致） ===== */
 .aigc-article-grid {
   display: grid;
-  grid-template-columns: 1fr; /* 三行布局 */
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-bottom: 2rem;
   max-width: 1200px;
@@ -398,19 +402,18 @@ a {
   border-radius: 8px;
   overflow: hidden;
   transition: var(--transition-smooth);
-  align-items: center; /* 垂直居中 */
-  height: 240px; /* 高度翻倍（原120px） */
+  align-items: center;
+  height: 240px; /* 高度翻倍 */
 }
-/* 悬浮动画（与工具板块一致） */
 .aigc-article-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--vue-primary);
+  border-color: var(--liuli-text-color);
 }
 .article-image {
   flex-shrink: 0;
-  width: 220px; /* 适配高度翻倍 */
-  height: 100%; /* 占满卡片高度 */
+  width: 220px;
+  height: 100%;
 }
 .article-image img {
   width: 100%;
@@ -418,11 +421,11 @@ a {
   object-fit: cover;
 }
 .article-content {
-  padding: 1.5rem 2rem; /* 适配高度翻倍 */
+  padding: 1.5rem 2rem;
   flex-grow: 1;
 }
 .article-content h3 {
-  font-size: 1.2rem; /* 适配高度翻倍 */
+  font-size: 1.2rem;
   font-weight: 600;
   margin: 0 0 0.8rem 0;
   color: var(--text-primary);
@@ -430,7 +433,7 @@ a {
 .article-meta {
   display: flex;
   align-items: center;
-  font-size: 0.9rem; /* 适配高度翻倍 */
+  font-size: 0.9rem;
   color: var(--text-secondary);
   gap: 1.2rem;
 }
@@ -440,10 +443,10 @@ a {
   gap: 1rem;
 }
 
-/* ===== 创作资源与工具（7个板块+高度减少1/3+按钮分主题配色） ===== */
+/* ===== 创作资源与工具（7个板块+高度优化+按钮调整） ===== */
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(calc(100% / 7 - 1rem), 1fr)); /* 合理分配7个板块宽度 */
+  grid-template-columns: repeat(auto-fit, minmax(calc(100% / 7 - 1rem), 1fr));
   gap: 0.8rem;
   margin-bottom: 2rem;
   max-width: 1200px;
@@ -455,20 +458,20 @@ a {
   background: var(--bg-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 0.8rem 0.5rem; /* 高度减少1/3（原1.5rem→0.8rem） */
+  padding: 1.2rem 0.8rem; /* 增加内边距，提高整体高度 */
   text-align: center;
   transition: var(--transition-smooth);
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  height: 140px; /* 固定高度，减少1/3后更紧凑 */
+  height: 180px; /* 优化高度，足够容纳内容 */
+  justify-content: center; /* 内部元素垂直居中，避免拥挤 */
 }
-/* 悬浮动画 */
 .tool-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--vue-primary);
+  border-color: var(--liuli-text-color);
 }
 .tool-card::before {
   content: '';
@@ -477,7 +480,7 @@ a {
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--vue-primary);
+  background: var(--liuli-text-color);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -485,56 +488,56 @@ a {
   opacity: 1;
 }
 .tool-icon {
-  font-size: 1.5rem; /* 缩小图标，适配高度减少 */
-  margin-bottom: 0.4rem;
-  height: 40px;
-  width: 40px;
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+  height: 45px;
+  width: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #F0FDF4, #E3F9E5);
   border-radius: 50%;
-  color: var(--vue-primary);
+  color: var(--liuli-text-color);
 }
 .dark .tool-icon {
   background: linear-gradient(135deg, #121826, #1F2937);
 }
 .tool-card h3 {
-  margin: 0.2rem 0;
-  font-size: 0.8rem; /* 缩小标题，适配高度减少 */
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 .tool-card p {
   color: var(--text-secondary);
-  font-size: 0.65rem; /* 缩小描述，适配高度减少 */
-  margin-bottom: 0.6rem;
+  font-size: 0.7rem;
+  margin-bottom: 0.8rem;
   line-height: 1.4;
-  flex-grow: 1;
 }
-/* 下载按钮（分主题配色+高度缩小） */
+/* 下载按钮（纯圆角+主题适配+文字居中+高度优化） */
 .download-btn {
-  display: inline-block;
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  padding: 0.3rem 0.6rem; /* 高度缩小，更紧凑 */
-  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* 水平居中 */
+  background: var(--download-bg);
+  color: var(--download-text);
+  padding: 0.2rem 0.8rem; /* 优化内边距，降低高度 */
+  border-radius: 999px; /* 纯圆角 */
   font-weight: 500;
-  font-size: 0.65rem; /* 缩小字体，适配小板块 */
+  font-size: 0.65rem;
   transition: var(--transition-smooth);
   width: 100%;
-  max-width: 70px; /* 适配小板块 */
-  text-align: center;
-  height: 24px; /* 固定按钮高度，缩小尺寸 */
-  line-height: 24px; /* 垂直居中，无多余高度 */
+  max-width: 70px;
+  height: 18px; /* 降低按钮高度 */
+  line-height: 18px; /* 垂直居中，与高度一致 */
 }
 .download-btn:hover {
-  background: var(--btn-hover-bg);
+  background: var(--download-hover);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(79, 192, 141, 0.2);
+  box-shadow: var(--shadow-light);
 }
 
-/* ===== 探索更多按钮（每个板块下方+主题适配） ===== */
+/* ===== 探索更多按钮（纯圆角+Liuli文案色+主题适配） ===== */
 .section-more-btn {
   margin-bottom: 5rem;
   max-width: 1200px;
@@ -545,16 +548,16 @@ a {
 }
 .explore-more-btn {
   display: inline-block;
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  background: var(--explore-bg);
+  color: var(--explore-text);
+  padding: 0.6rem 1.8rem;
+  border-radius: 999px; /* 纯圆角 */
   font-weight: 500;
   font-size: 0.9rem;
   transition: var(--transition-smooth);
 }
 .explore-more-btn:hover {
-  background: var(--btn-hover-bg);
+  background: var(--explore-hover);
   box-shadow: var(--shadow-light);
   transform: translateY(-1px);
 }
@@ -562,12 +565,12 @@ a {
 /* ===== 响应式调整 ===== */
 @media (max-width: 992px) {
   .tools-grid {
-    grid-template-columns: repeat(4, 1fr); /* 平板端4列 */
+    grid-template-columns: repeat(4, 1fr);
   }
   .aigc-article-card {
-    flex-direction: column; /* 平板端AIGC卡片上下布局 */
+    flex-direction: column;
     text-align: center;
-    height: auto; /* 自适应高度，保证美观 */
+    height: auto;
   }
   .article-image {
     width: 100%;
@@ -586,13 +589,13 @@ a {
     gap: 1.5rem;
   }
   .tools-grid {
-    grid-template-columns: repeat(2, 1fr); /* 移动端2列 */
+    grid-template-columns: repeat(2, 1fr);
   }
   .section-header h2 {
     font-size: 1.6rem;
   }
   .explore-more-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     font-size: 0.8rem;
   }
 }
@@ -601,8 +604,8 @@ a {
     padding: 1rem;
   }
   .tool-card {
-    padding: 0.6rem 0.3rem;
-    height: 120px;
+    padding: 1rem 0.6rem;
+    height: 160px;
   }
   .section-more-btn {
     text-align: center;
