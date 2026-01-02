@@ -20,6 +20,9 @@ hero:
 features: []  # 清空原有features，防止显示默认内容
 ---
 
+<!-- 主题切换按钮 -->
+<button id="theme-toggle" class="theme-toggle" title="切换主题"></button>
+
 <!-- 精选作品集 -->
 <div class="section-header">
   <h2>精选作品集</h2>
