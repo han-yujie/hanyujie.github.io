@@ -197,16 +197,16 @@ features: []  # 清空原有features，防止显示默认内容
 :root {
   /* 浅色模式（默认） */
   --vue-primary: #4FC08D; /* Banner品牌按钮色（浏览作品集） */
-  --liuli-text-color: #2C3E50; /* Banner Liuli文案浅色 */
-  --resource-btn-light: #3B82F6; /* Banner创作资源按钮浅色 */
+  --liuli-text-color: #2c3e50ff; /* Banner Liuli文案浅色 */
+  --resource-btn-light: #2c3e50ff; /* Banner创作资源按钮浅色 */
   --explore-bg: var(--liuli-text-color); /* 探索更多按钮浅色背景 */
-  --explore-text: #F8FAFC; /* 探索更多按钮浅色文字 */
-  --explore-hover: #1E293B; /* 探索更多按钮浅色hover */
+  --explore-text: #1E293B; /* 探索更多按钮浅色文字 */
+  --explore-hover: #e4e4e4ff; /* 探索更多按钮浅色hover */
   --download-bg: var(--resource-btn-light); /* 下载按钮浅色背景 */
   --download-text: #FFFFFF; /* 下载按钮浅色文字 */
   --download-hover: #2563EB; /* 下载按钮浅色hover */
-  --text-primary: #2C3E50;
-  --text-secondary: #64748B;
+  --text-primary: #ffffffff;
+  --text-secondary: #ffffffff;
   --bg-light: #F8FAFC;
   --bg-white: #FFFFFF;
   --border-color: #E2E8F0;
