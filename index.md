@@ -1,5 +1,4 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
@@ -7,7 +6,7 @@ hero:
   text: "A VitePress Site"
   tagline: My great project tagline
   image:
-    src: /banner-image.png  # 请替换为你的Banner右侧创意图片
+    src: /banner-image.png
     alt: 创意设计展示
     style: "max-width: 400px; height: auto;"
   actions:
@@ -16,14 +15,14 @@ hero:
       link: /portfolio
     - theme: alt
       text: 创作资源
-      link: /aigc
+      link: /resources
 
-# 移除原有的 features 部分
+features: []  # 清空原有features，防止显示默认内容
 ---
 
 <!-- 精选作品集 -->
 <div class="section-header">
-  <h2>🎨 精选作品集</h2>
+  <h2>精选作品集</h2>
 </div>
 
 <div class="portfolio-grid">
@@ -32,8 +31,8 @@ hero:
       <h3>品牌视觉设计系统</h3>
       <p>为企业打造完整的品牌视觉识别系统，包括标志、色彩、版式和图形元素。</p>
       <div class="tags">
-        <span class="tag">UI/UX</span>
-        <span class="tag">品牌设计</span>
+        <span class="tag tag-uiux">UI/UX</span>
+        <span class="tag tag-brand">品牌设计</span>
       </div>
     </div>
   </a>
@@ -43,8 +42,8 @@ hero:
       <h3>3D建筑可视化</h3>
       <p>使用Blender和UE5创建的高质量建筑渲染与沉浸式虚拟漫游体验。</p>
       <div class="tags">
-        <span class="tag">3D建模</span>
-        <span class="tag">可视化</span>
+        <span class="tag tag-3d">3D建模</span>
+        <span class="tag tag-viz">可视化</span>
       </div>
     </div>
   </a>
@@ -54,8 +53,8 @@ hero:
       <h3>移动端应用设计</h3>
       <p>针对iOS和Android平台的用户界面设计，注重交互体验与视觉美感。</p>
       <div class="tags">
-        <span class="tag">移动端</span>
-        <span class="tag">交互设计</span>
+        <span class="tag tag-mobile">移动端</span>
+        <span class="tag tag-interaction">交互设计</span>
       </div>
     </div>
   </a>
@@ -63,34 +62,40 @@ hero:
 
 <!-- AIGC实时创作 -->
 <div class="section-header">
-  <h2>🤖 AIGC实时创作</h2>
+  <h2>AIGC实时创作</h2>
 </div>
 
 <div class="aigc-section">
   <div class="aigc-content">
     <h3>AI辅助创作流程</h3>
-    <p>我们的AIGC平台整合了多种AI模型，为您提供从灵感激发到作品完成的完整创作支持。</p>
+    <p class="aigc-intro">我们的AIGC平台整合了多种AI模型，为您提供从灵感激发到作品完成的完整创作支持。</p>
     
-    <div class="process-steps">
-      <div class="step">
-        <div class="step-icon">💡</div>
-        <div class="step-text">
+    <div class="aigc-steps">
+      <div class="aigc-step-card">
+        <div class="step-icon-wrapper">
+          <div class="step-icon">💡</div>
+        </div>
+        <div class="step-content">
           <h4>创意灵感生成</h4>
           <p>基于关键词和风格描述，AI生成多个创意方向和概念草图</p>
         </div>
       </div>
       
-      <div class="step">
-        <div class="step-icon">🎨</div>
-        <div class="step-text">
+      <div class="aigc-step-card">
+        <div class="step-icon-wrapper">
+          <div class="step-icon">🎨</div>
+        </div>
+        <div class="step-content">
           <h4>视觉内容创作</h4>
           <p>利用扩散模型生成高质量图像，支持多种艺术风格和分辨率</p>
         </div>
       </div>
       
-      <div class="step">
-        <div class="step-icon">✏️</div>
-        <div class="step-text">
+      <div class="aigc-step-card">
+        <div class="step-icon-wrapper">
+          <div class="step-icon">✏️</div>
+        </div>
+        <div class="step-content">
           <h4>内容优化调整</h4>
           <p>通过参数调整和局部修改，精细化控制生成结果</p>
         </div>
@@ -101,7 +106,7 @@ hero:
 
 <!-- 创作资源与工具 -->
 <div class="section-header">
-  <h2>🛠️ 创作资源与工具</h2>
+  <h2>创作资源与工具</h2>
 </div>
 
 <div class="tools-grid">
@@ -163,6 +168,21 @@ hero:
 </div>
 
 <style>
+/* ===== 全局样式 ===== */
+:root {
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --secondary-color: #10b981;
+  --accent-color: #8b5cf6;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --bg-light: #f9fafb;
+  --border-color: #e5e7eb;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* 移除标题前的#号 */
 h1 a.header-anchor,
 h2 a.header-anchor,
@@ -173,235 +193,334 @@ h6 a.header-anchor {
   display: none !important;
 }
 
+/* 移除Banner下面的分割线 */
+.VPHero .VPImage {
+  border: none !important;
+}
+.VPHero::after {
+  display: none !important;
+}
+
+/* 移除所有下划线 */
+a {
+  text-decoration: none !important;
+}
+
+.section-header {
+  margin-top: 4rem;
+  margin-bottom: 2.5rem;
+}
+
 .section-header h2 {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  position: relative;
+  padding-bottom: 0.5rem;
+  border-bottom: none !important;
 }
 
 .section-header h2::after {
-  content: none;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
 }
 
-/* 作品集样式 */
+/* ===== 作品集样式 ===== */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .portfolio-card {
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
   display: block;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: var(--transition-smooth);
   color: inherit;
-  text-decoration: none;
-  background: var(--vp-c-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .portfolio-card:hover {
-  border-color: var(--vp-c-brand);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  color: inherit;
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--primary-color);
 }
 
-.portfolio-card .card-content h3 {
+.portfolio-card:hover::before {
+  opacity: 1;
+}
+
+.card-content h3 {
   margin-top: 0;
   margin-bottom: 0.8rem;
   font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
-.portfolio-card .card-content p {
-  color: var(--vp-c-text-2);
-  margin-bottom: 1rem;
-  line-height: 1.5;
+.card-content p {
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .tags {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 
 .tag {
-  background: linear-gradient(135deg, var(--vp-c-brand), var(--vp-c-brand-light));
-  color: white;
-  padding: 0.4rem 1rem;
+  padding: 0.35rem 0.9rem;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
+  color: white;
   display: inline-block;
+  transition: transform 0.2s ease;
 }
 
-/* AIGC板块样式 */
+.tag:hover {
+  transform: translateY(-1px);
+}
+
+.tag-uiux { background-color: #3b82f6; }      /* UI/UX - 蓝色 */
+.tag-brand { background-color: #10b981; }    /* 品牌设计 - 绿色 */
+.tag-3d { background-color: #8b5cf6; }       /* 3D建模 - 紫色 */
+.tag-viz { background-color: #f59e0b; }      /* 可视化 - 橙色 */
+.tag-mobile { background-color: #ef4444; }   /* 移动端 - 红色 */
+.tag-interaction { background-color: #06b6d4; } /* 交互设计 - 青色 */
+
+/* ===== AIGC板块样式 ===== */
 .aigc-section {
-  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
-  border-radius: 16px;
-  padding: 2.5rem;
-  margin: 2rem 0 3rem;
-  border: 1px solid rgba(var(--vp-c-brand-rgb), 0.1);
+  margin: 3rem 0 4rem;
 }
 
 .aigc-content h3 {
-  margin-top: 0;
-  font-size: 1.5rem;
-  color: var(--vp-c-text-1);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
 }
 
-.aigc-content > p {
-  color: var(--vp-c-text-2);
-  margin-bottom: 2rem;
-  max-width: 800px;
+.aigc-intro {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  line-height: 1.6;
 }
 
-.process-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  max-width: 800px;
+.aigc-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-.step {
+.aigc-step-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: var(--transition-smooth);
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--vp-c-divider);
+  gap: 1.25rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.step-icon {
-  font-size: 2rem;
-  background: linear-gradient(135deg, var(--vp-c-brand), var(--vp-c-brand-light));
-  color: white;
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.aigc-step-card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.aigc-step-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.step-icon-wrapper {
   flex-shrink: 0;
 }
 
-.step-text h4 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.2rem;
-  color: var(--vp-c-text-1);
-}
-
-.step-text p {
-  margin: 0;
-  color: var(--vp-c-text-2);
-  line-height: 1.5;
-}
-
-/* 创作资源工具样式 */
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0 4rem;
-}
-
-.tool-card {
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 1.8rem 1.5rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  background: var(--vp-c-bg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tool-card:hover {
-  border-color: var(--vp-c-brand);
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.tool-icon {
-  font-size: 3rem;
-  margin-bottom: 1.2rem;
-  height: 80px;
-  width: 80px;
+.step-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--vp-c-bg-soft), var(--vp-c-bg-soft-up));
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.step-content h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.step-content p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ===== 创作资源与工具样式 ===== */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 5rem;
+}
+
+.tool-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.tool-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tool-card:hover::before {
+  opacity: 1;
+}
+
+.tool-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
   border-radius: 50%;
+  color: var(--primary-color);
 }
 
 .tool-card h3 {
   margin: 0.5rem 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .tool-card p {
-  color: var(--vp-c-text-2);
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
   flex-grow: 1;
 }
 
 .download-btn {
   display: inline-block;
-  background: linear-gradient(135deg, var(--vp-c-brand), var(--vp-c-brand-light));
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
   color: white;
-  padding: 0.7rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: var(--transition-smooth);
   border: none;
   cursor: pointer;
-  font-size: 0.9rem;
+  text-decoration: none;
+  width: 100%;
+  max-width: 140px;
+  text-align: center;
 }
 
 .download-btn:hover {
-  background: linear-gradient(135deg, var(--vp-c-brand-dark), var(--vp-c-brand));
+  background: linear-gradient(135deg, var(--primary-hover), #1d4ed8);
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(var(--vp-c-brand-rgb), 0.3);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-/* 响应式调整 */
+/* ===== 响应式调整 ===== */
 @media (max-width: 992px) {
   .tools-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 }
 
 @media (max-width: 768px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .aigc-steps {
+    grid-template-columns: 1fr;
   }
   
   .tools-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
   }
   
-  .aigc-section {
-    padding: 1.5rem;
-  }
-  
-  .step {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-  
-  .step-icon {
-    margin-bottom: 1rem;
+  .section-header h2 {
+    font-size: 1.7rem;
   }
 }
 
@@ -410,9 +529,13 @@ h6 a.header-anchor {
     grid-template-columns: 1fr;
   }
   
+  .tool-card {
+    padding: 1.25rem;
+  }
+  
   .tag {
     padding: 0.3rem 0.8rem;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 }
 </style>
