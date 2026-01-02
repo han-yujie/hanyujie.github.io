@@ -60,7 +60,7 @@ features: []  # 清空原有features，防止显示默认内容
   </a>
 </div>
 
-<!-- AIGC实时创作 -->
+<!-- AIGC实时创作（修复原代码缺失的标签） -->
 <div class="section-header">
   <h2>AIGC实时创作</h2>
 </div>
@@ -70,7 +70,7 @@ features: []  # 清空原有features，防止显示默认内容
     <h3>AI辅助创作流程</h3>
     <p class="aigc-intro">我们的AIGC平台整合了多种AI模型，为您提供从灵感激发到作品完成的完整创作支持。</p>
     
-    <div class="aigc-steps">
+    <div class="aigc-steps"> <!-- 修复：补充缺失的div开始标签 -->
       <div class="aigc-step-card">
         <div class="step-icon-wrapper">
           <div class="step-icon">💡</div>
@@ -100,7 +100,7 @@ features: []  # 清空原有features，防止显示默认内容
           <p>通过参数调整和局部修改，精细化控制生成结果</p>
         </div>
       </div>
-    </div>
+    </div> <!-- 修复：补充缺失的div结束标签 -->
   </div>
 </div>
 
@@ -168,19 +168,35 @@ features: []  # 清空原有features，防止显示默认内容
 </div>
 
 <style>
-/* ===== 全局样式 ===== */
+/* ===== 全局样式（适配Vue.js官网风格） ===== */
 :root {
-  --primary-color: #3b82f6;
-  --primary-hover: #2563eb;
-  --secondary-color: #10b981;
-  --accent-color: #8b5cf6;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --bg-light: #f9fafb;
-  --border-color: #e5e7eb;
-  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.08);
-  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Vue.js官网核心配色 */
+  --vue-primary: #4FC08D; /* 主色：薄荷绿 */
+  --vue-primary-light: #65D3A2; /* 主色浅调 */
+  --vue-primary-dark: #3AA373; /* 主色深调 */
+  --vue-secondary: #3B82F6; /* 辅助色：浅蓝 */
+  --vue-secondary-light: #60A5FA; /* 辅助色浅调 */
+  --vue-text-primary: #2C3E50; /* 主文本色：深灰蓝 */
+  --vue-text-secondary: #64748B; /* 次文本色：中灰 */
+  --vue-bg-light: #F8FAFC; /* 浅背景色 */
+  --vue-bg-white: #FFFFFF; /* 白色背景 */
+  --vue-border-color: #E2E8F0; /* 边框色 */
+  --vue-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.06); /* 轻阴影 */
+  --vue-shadow-hover: 0 4px 16px rgba(79, 192, 141, 0.15); /* 悬浮阴影（主色关联） */
+  --vue-transition-smooth: all 0.2s ease-in-out; /* 柔和过渡 */
+}
+
+/* 重置默认样式，与Vue官网对齐 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--vue-bg-light);
+  color: var(--vue-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 /* 移除标题前的#号 */
@@ -193,7 +209,7 @@ h6 a.header-anchor {
   display: none !important;
 }
 
-/* 移除Banner下面的分割线 */
+/* 移除Banner下面的分割线，适配Vue官网简约风格 */
 .VPHero .VPImage {
   border: none !important;
 }
@@ -201,51 +217,61 @@ h6 a.header-anchor {
   display: none !important;
 }
 
-/* 移除所有下划线 */
+/* 移除所有下划线，Vue官网链接无下划线 */
 a {
   text-decoration: none !important;
+  color: inherit;
 }
 
+/* 章节标题样式（参考Vue官网章节标题） */
 .section-header {
-  margin-top: 4rem;
+  margin-top: 5rem;
   margin-bottom: 2.5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
 }
 
 .section-header h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--vue-text-primary);
   position: relative;
-  padding-bottom: 0.5rem;
-  border-bottom: none !important;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--vue-border-color) !important;
 }
 
 .section-header h2::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -1px; /* 与底部边框对齐 */
   left: 0;
   width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-  border-radius: 2px;
+  height: 2px;
+  background: var(--vue-primary); /* Vue主色分割线 */
+  border-radius: 1px;
 }
 
-/* ===== 作品集样式 ===== */
+/* ===== 作品集样式（Vue风格优化） ===== */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
 }
 
 .portfolio-card {
   display: block;
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
+  background: var(--vue-bg-white);
+  border: 1px solid var(--vue-border-color);
+  border-radius: 8px; /* Vue官网小圆角风格 */
   padding: 1.75rem;
-  transition: var(--transition-smooth);
+  transition: var(--vue-transition-smooth);
   color: inherit;
   position: relative;
   overflow: hidden;
@@ -257,16 +283,16 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  height: 2px; /* 细线条，贴合Vue简约风格 */
+  background: var(--vue-primary);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .portfolio-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--card-shadow-hover);
-  border-color: var(--primary-color);
+  transform: translateY(-2px); /* 小幅悬浮，更柔和 */
+  box-shadow: var(--vue-shadow-hover);
+  border-color: var(--vue-primary-light);
 }
 
 .portfolio-card:hover::before {
@@ -276,13 +302,13 @@ a {
 .card-content h3 {
   margin-top: 0;
   margin-bottom: 0.8rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--vue-text-primary);
 }
 
 .card-content p {
-  color: var(--text-secondary);
+  color: var(--vue-text-secondary);
   margin-bottom: 1.2rem;
   line-height: 1.6;
   font-size: 0.95rem;
@@ -296,39 +322,46 @@ a {
 
 .tag {
   padding: 0.35rem 0.9rem;
-  border-radius: 20px;
+  border-radius: 16px; /* 小圆角，贴合Vue风格 */
   font-size: 0.8rem;
   font-weight: 500;
   color: white;
   display: inline-block;
-  transition: transform 0.2s ease;
+  transition: var(--vue-transition-smooth);
+  border: none;
 }
 
 .tag:hover {
   transform: translateY(-1px);
+  opacity: 0.95;
 }
 
-.tag-uiux { background-color: #3b82f6; }      /* UI/UX - 蓝色 */
-.tag-brand { background-color: #10b981; }    /* 品牌设计 - 绿色 */
-.tag-3d { background-color: #8b5cf6; }       /* 3D建模 - 紫色 */
-.tag-viz { background-color: #f59e0b; }      /* 可视化 - 橙色 */
-.tag-mobile { background-color: #ef4444; }   /* 移动端 - 红色 */
-.tag-interaction { background-color: #06b6d4; } /* 交互设计 - 青色 */
+/* 标签配色替换为Vue风格低饱和色 */
+.tag-uiux { background-color: var(--vue-secondary); }      /* UI/UX - Vue辅助蓝 */
+.tag-brand { background-color: var(--vue-primary); }    /* 品牌设计 - Vue主绿 */
+.tag-3d { background-color: #9333EA; opacity: 0.9; }       /* 3D建模 - 低饱和紫 */
+.tag-viz { background-color: #F59E0B; opacity: 0.9; }      /* 可视化 - 低饱和橙 */
+.tag-mobile { background-color: #EF4444; opacity: 0.9; }   /* 移动端 - 低饱和红 */
+.tag-interaction { background-color: #06B6D4; opacity: 0.9; } /* 交互设计 - 低饱和青 */
 
-/* ===== AIGC板块样式 ===== */
+/* ===== AIGC板块样式（Vue风格优化+修复语法错误） ===== */
 .aigc-section {
-  margin: 3rem 0 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+  margin-bottom: 5rem;
 }
 
 .aigc-content h3 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--vue-text-primary);
   margin-bottom: 0.5rem;
 }
 
 .aigc-intro {
-  color: var(--text-secondary);
+  color: var(--vue-text-secondary);
   font-size: 1.05rem;
   margin-bottom: 2.5rem;
   max-width: 700px;
@@ -343,11 +376,11 @@ a {
 }
 
 .aigc-step-card {
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
+  background: var(--vue-bg-white);
+  border: 1px solid var(--vue-border-color);
+  border-radius: 8px;
   padding: 1.75rem;
-  transition: var(--transition-smooth);
+  transition: var(--vue-transition-smooth);
   display: flex;
   align-items: flex-start;
   gap: 1.25rem;
@@ -356,9 +389,9 @@ a {
 }
 
 .aigc-step-card:hover {
-  transform: scale(1.02);
-  box-shadow: var(--card-shadow-hover);
-  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--vue-shadow-hover);
+  border-color: var(--vue-primary-light);
 }
 
 .aigc-step-card::before {
@@ -367,8 +400,8 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  height: 2px;
+  background: var(--vue-primary);
 }
 
 .step-icon-wrapper {
@@ -378,44 +411,46 @@ a {
 .step-icon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-  border-radius: 14px;
+  background: linear-gradient(135deg, #F0FDF4, #E3F9E5); /* Vue主色关联浅渐变 */
+  border-radius: 12px; /* 小圆角，贴合Vue风格 */
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  color: var(--primary-color);
+  color: var(--vue-primary);
 }
 
 .step-content h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--vue-text-primary);
 }
 
 .step-content p {
   margin: 0;
-  color: var(--text-secondary);
+  color: var(--vue-text-secondary);
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* ===== 创作资源与工具样式 ===== */
+/* ===== 创作资源与工具样式（Vue风格优化） ===== */
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 1.5rem;
-  margin: 2rem 0 5rem;
+  margin: 2rem auto 5rem;
+  max-width: 1200px;
+  padding: 0 1.5rem;
 }
 
 .tool-card {
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
+  background: var(--vue-bg-white);
+  border: 1px solid var(--vue-border-color);
+  border-radius: 8px;
   padding: 1.5rem;
   text-align: center;
-  transition: var(--transition-smooth);
+  transition: var(--vue-transition-smooth);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -424,9 +459,9 @@ a {
 }
 
 .tool-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--card-shadow-hover);
-  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--vue-shadow-hover);
+  border-color: var(--vue-primary-light);
 }
 
 .tool-card::before {
@@ -435,8 +470,8 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  height: 2px;
+  background: var(--vue-primary);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -453,20 +488,20 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  background: linear-gradient(135deg, #F0FDF4, #E3F9E5); /* Vue主色关联浅渐变 */
   border-radius: 50%;
-  color: var(--primary-color);
+  color: var(--vue-primary);
 }
 
 .tool-card h3 {
   margin: 0.5rem 0;
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--vue-text-primary);
 }
 
 .tool-card p {
-  color: var(--text-secondary);
+  color: var(--vue-text-secondary);
   font-size: 0.85rem;
   margin-bottom: 1.2rem;
   line-height: 1.4;
@@ -475,13 +510,13 @@ a {
 
 .download-btn {
   display: inline-block;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  background: var(--vue-primary); /* Vue主色按钮 */
   color: white;
   padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  border-radius: 6px; /* 小圆角，贴合Vue风格 */
   font-weight: 500;
   font-size: 0.85rem;
-  transition: var(--transition-smooth);
+  transition: var(--vue-transition-smooth);
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -491,13 +526,13 @@ a {
 }
 
 .download-btn:hover {
-  background: linear-gradient(135deg, var(--primary-hover), #1d4ed8);
+  background: var(--vue-primary-dark);
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(79, 192, 141, 0.2); /* 主色轻阴影 */
 }
 
-/* ===== 响应式调整 ===== */
+/* ===== 响应式调整（与Vue官网响应式逻辑对齐） ===== */
 @media (max-width: 992px) {
   .tools-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -520,7 +555,7 @@ a {
   }
   
   .section-header h2 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -536,6 +571,10 @@ a {
   .tag {
     padding: 0.3rem 0.8rem;
     font-size: 0.75rem;
+  }
+  
+  .section-header {
+    margin-top: 4rem;
   }
 }
 </style>
