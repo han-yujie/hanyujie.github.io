@@ -195,107 +195,117 @@ features: []  # 清空原有features，防止显示默认内容
 <style>
 /* ===== 全局样式（Vue风格+主题切换） ===== */
 :root {
-  /* 浅色模式 - 主色系 */
-  --color-primary: #3B82F6; /* 蓝色-品牡主色 */
-  --color-primary-hover: #2563EB; /* 蓝色-深 */
-  --color-primary-light: #DBEAFE; /* 蓝色-浅 */
-  
-  /* 浅色模式 - 文本色系 */
-  --text-primary: #2C3E50; /* 主文本 */
-  --text-secondary: #64748B; /* 次文本 */
-  --text-light: #94A3B8; /* 浅文本 */
-  --text-inverse: #FFFFFF; /* 反色文本 */
-  
-  /* 浅色模式 - 背景色系 */
-  --bg-page: #F8FAFC; /* 页面背景 */
-  --bg-card: #FFFFFF; /* 卡片背景 */
-  --bg-hover: #F1F5F9; /* 悬浮背景 */
-  --bg-input: #FFFFFF; /* 输入框背景 */
-  
-  /* 浅色模式 - 边框与阴影 */
-  --border-color: #E2E8F0; /* 边框色 */
-  --border-color-hover: #CBD5E1; /* 边框色-悬浮 */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 4px 16px rgba(79, 192, 141, 0.15);
-  
-  /* 浅色模式 - 按钮色系 */
-  --btn-primary-bg: #2C3E50; /* 主按钮背景 */
-  --btn-primary-text: #FFFFFF; /* 主按钮文字 */
-  --btn-primary-hover: #1E293B; /* 主按钮悬浮 */
-  --btn-secondary-bg: #4FC08D; /* 次按钮背景（Vue绿） */
-  --btn-secondary-text: #FFFFFF; /* 次按钮文字 */
-  --btn-secondary-hover: #3AA578; /* 次按钮悬浮 */
-  
-  /* 浅色模式 - 标签色系 */
-  --tag-bg: #DBEAFE; /* 标签背景 */
-  --tag-text: #1F2937; /* 标签文字 */
-  
-  /* 浅色模式 - 额外按钮和卡片变量 */
-  --bg-white: #FFFFFF; /* 卡片白色背景 */
-  --download-bg: #DBEAFE; /* 下载按钮背景-浅蓝 */
-  --download-text: #1F2937; /* 下载按钮文字-深灰 */
-  --download-hover: #BFDBFE; /* 下载按钮悬浮-更深的浅蓝 */
-  --explore-bg: #3B82F6; /* 探索按钮背景-蓝色 */
-  --explore-text: #FFFFFF; /* 探索按钮文字-白色 */
-  --explore-hover: #2563EB; /* 探索按钮悬浮-深蓝 */
-  --shadow-hover: 0 2px 8px rgba(59, 130, 246, 0.15); /* 悬浮阴影 */
-  --shadow-light: 0 1px 4px rgba(0, 0, 0, 0.05); /* 浅阴影 */
-  --liuli-text-color: #3B82F6; /* 主题强调色 */
-  
-  /* 动画 */
+  --color-primary: #41B883;
+  --color-primary-hover: #2F9A66;
+  --color-primary-light: #E6F7EE;
+
+  --text-primary: #0F1724;
+  --text-secondary: #425066;
+  --text-light: #6B7885;
+  --text-inverse: #FFFFFF;
+
+  --bg-page: #FAFBFC;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F3F7F5;
+  --bg-input: #FFFFFF;
+
+  --border-color: #E6EEF0;
+  --border-color-hover: #CFE6DA;
+
+  --shadow-sm: 0 1px 2px rgba(15,23,36,0.04);
+  --shadow-md: 0 4px 12px rgba(15,23,36,0.06);
+  --shadow-lg: 0 8px 24px rgba(15,23,36,0.08);
+  --shadow-soft: 0 2px 8px rgba(15,23,36,0.06);
+
+  --btn-primary-bg: #0F1724;
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-hover: #0B1320;
+
+  --btn-secondary-bg: #41B883;
+  --btn-secondary-text: #FFFFFF;
+  --btn-secondary-hover: #369A6F;
+
+  --tag-bg: #E6F7EE;
+  --tag-text: #145A3B;
+
+  --download-bg: #E6F7EE;
+  --download-text: #145A3B;
+  --download-hover: #CFE6DA;
+
+  --explore-bg: #F3F4F6;
+  --explore-text: #0F1724;
+  --explore-hover: #E5E7EB;
+
+  --shadow-hover: 0 2px 8px rgba(15,23,36,0.06);
+  --shadow-light: 0 1px 4px rgba(15,23,36,0.04);
+
+  --liuli-text-color: #41B883;
   --transition-smooth: all 0.2s ease-in-out;
+  --bg-white: var(--bg-card);
+  --icon-grad-start: #DBEAFE;
+  --icon-grad-end: #BFDBFE;
+  --dark-icon-grad-start: #1E3A8A;
+  --dark-icon-grad-end: #1F2937;
+  --tool-icon-color: var(--liuli-text-color);
+  --focus-ring: rgba(15,23,42,0.06);
+  --focus-ring-strong: rgba(15,23,42,0.12);
 }
 
 /* 深色模式 */
 .dark {
-  /* 深色模式 - 主色系 */
-  --color-primary: #60A5FA; /* 蓝色-亮化版 */
-  --color-primary-hover: #3B82F6; /* 蓝色-标准 */
-  --color-primary-light: #374151; /* 灰色-深色背景 */
-  
-  /* 深色模式 - 文本色系 */
-  --text-primary: #F8FAFC; /* 主文本 */
-  --text-secondary: #94A3B8; /* 次文本 */
-  --text-light: #64748B; /* 浅文本 */
-  --text-inverse: #0A0E17; /* 反色文本 */
-  
-  /* 深色模式 - 背景色系 */
-  --bg-page: #0A0E17; /* 页面背景-纯黑 */
-  --bg-card: #121826; /* 卡片背景 */
-  --bg-hover: #1F2937; /* 悬浮背景 */
-  --bg-input: #1F2937; /* 输入框背景 */
-  
-  /* 深色模式 - 边框与阴影 */
-  --border-color: #1F2937; /* 边框色 */
-  --border-color-hover: #374151; /* 边框色-悬浮 */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 4px 16px rgba(58, 163, 115, 0.25);
-  
-  /* 深色模式 - 按钮色系 */
-  --btn-primary-bg: #F8FAFC; /* 主按钮背景 */
-  --btn-primary-text: #0A0E17; /* 主按钮文字 */
-  --btn-primary-hover: #E2E8F0; /* 主按钮悬浮 */
-  --btn-secondary-bg: #52D87A; /* 次按钮背景（亮绿） */
-  --btn-secondary-text: #0A0E17; /* 次按钮文字 */
-  --btn-secondary-hover: #E2E8F0; /* 次按钮悬浮 */
-  
-  /* 深色模式 - 标签色系 */
-  --tag-bg: #1E3A8A; /* 标签背景 */
-  --tag-text: #93C5FD; /* 标签文字 */
-  
-  /* 深色模式 - 额外按钮和卡片变量 */
-  --bg-white: #121826; /* 深色卡片背景 */
-  --download-bg: #1F2937; /* 下载按钮背景-深灰 */
-  --download-text: #60A5FA; /* 下载按钮文字-亮蓝 */
-  --download-hover: #2A3F47; /* 下载按钮悬浮-更深的深灰 */
-  --explore-bg: #60A5FA; /* 探索按钮背景-亮蓝 */
-  --explore-text: #0A0E17; /* 探索按钮文字-纯黑 */
-  --explore-hover: #3B82F6; /* 探索按钮悬浮-标准蓝 */
-  --shadow-hover: 0 2px 8px rgba(59, 130, 246, 0.2); /* 悬浮阴影 */
-  --shadow-light: 0 1px 4px rgba(0, 0, 0, 0.2); /* 浅阴影 */
-  --liuli-text-color: #60A5FA; /* 主题强调色 */
+  --color-primary: #66D19A;
+  --color-primary-hover: #41B883;
+  --color-primary-light: #10312A;
+
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-light: #64748B;
+  --text-inverse: #0B1220;
+
+  --bg-page: #0B1220;
+  --bg-card: #0F1724;
+  --bg-hover: #111827;
+  --bg-input: #0F1724;
+
+  --border-color: #1E293B;
+  --border-color-hover: #273449;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.6);
+  --shadow-md: 0 6px 16px rgba(0,0,0,0.6);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.6);
+  --shadow-soft: 0 2px 8px rgba(0,0,0,0.28);
+
+  --btn-primary-bg: #66D19A;
+  --btn-primary-text: #0B1220;
+  --btn-primary-hover: #41B883;
+
+  --btn-secondary-bg: #52D87A;
+  --btn-secondary-text: #0B1220;
+  --btn-secondary-hover: #3FB27F;
+
+  --tag-bg: #10312A;
+  --tag-text: #CFF8E6;
+
+  --download-bg: #1F2937;
+  --download-text: #E6F7EE;
+  --download-hover: #27343D;
+
+  --explore-bg: #111827;
+  --explore-text: #FFFFFF;
+  --explore-hover: #1F2937;
+
+  --shadow-hover: 0 2px 8px rgba(0,0,0,0.28);
+  --shadow-light: 0 1px 4px rgba(0,0,0,0.18);
+
+  --liuli-text-color: #66D19A;
+  --bg-white: var(--bg-card);
+  --icon-grad-start: #10304a;
+  --icon-grad-end: #0f1724;
+  --dark-icon-grad-start: #1E3A8A;
+  --dark-icon-grad-end: #1F2937;
+  --tool-icon-color: #66D19A;
+  --focus-ring: rgba(255,255,255,0.06);
+  --focus-ring-strong: rgba(255,255,255,0.12);
 }
 
 body {
@@ -343,8 +353,8 @@ a {
   font-weight: 600;
   color: var(--text-primary);
   position: relative;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 0.5rem;
+  border-bottom: none; /* 移除蓝色下划线 */
   transition: var(--transition-smooth);
 }
 
@@ -370,7 +380,7 @@ a {
 }
 .portfolio-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow-soft);
   border-color: var(--liuli-text-color);
 }
 .portfolio-card::before {
@@ -442,7 +452,7 @@ a {
 }
 .aigc-article-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow-soft);
   border-color: var(--liuli-text-color);
 }
 .article-image {
@@ -505,7 +515,7 @@ a {
 }
 .tool-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow-soft);
   border-color: var(--liuli-text-color);
 }
 .tool-card::before {
@@ -530,13 +540,13 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #DBEAFE, #BFDBFE);
+  background: linear-gradient(135deg, var(--icon-grad-start), var(--icon-grad-end));
   border-radius: 50%;
-  color: var(--liuli-text-color);
+  color: var(--tool-icon-color);
 }
 .dark .tool-icon {
-  background: linear-gradient(135deg, #1E3A8A, #1F2937);
-  color: #60A5FA;
+  background: linear-gradient(135deg, var(--dark-icon-grad-start), var(--dark-icon-grad-end));
+  color: var(--tool-icon-color);
 }
 .tool-card h3 {
   margin: 0.3rem 0;
@@ -570,7 +580,7 @@ a {
 .download-btn:hover {
   background: var(--download-hover);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-light);
+  box-shadow: var(--shadow-soft);
 }
 
 /* ===== 探索更多按钮（纯圆角+Liuli文案色+主题适配） ===== */
@@ -591,11 +601,39 @@ a {
   font-weight: 500;
   font-size: 0.9rem;
   transition: var(--transition-smooth);
+  border: 1px solid var(--focus-ring-strong);
+  box-shadow: none;
 }
+
 .explore-more-btn:hover {
   background: var(--explore-hover);
-  box-shadow: var(--shadow-light);
+  color: var(--explore-text);
+  box-shadow: var(--shadow-soft);
   transform: translateY(-1px);
+}
+
+.explore-more-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+  border-color: var(--focus-ring-strong);
+}
+
+/* 深色模式：深灰底 + 白字 */
+.dark .explore-more-btn {
+  background: var(--explore-bg);
+  color: var(--explore-text);
+  border: 1px solid var(--focus-ring-strong);
+  box-shadow: none;
+}
+.dark .explore-more-btn:hover {
+  background: var(--explore-hover);
+  color: var(--explore-text);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-1px);
+}
+.dark .explore-more-btn:focus {
+  box-shadow: 0 0 0 4px var(--focus-ring);
+  border-color: var(--focus-ring-strong);
 }
 
 /* ===== 响应式调整 ===== */
