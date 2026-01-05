@@ -193,119 +193,119 @@ features: []  # 清空原有features，防止显示默认内容
 </div>
 
 <style>
-/* ===== 全局样式（现代暗黑模式 + 高级绿色配色） ===== */
+/* ===== 全局样式（现代暗黑模式 + 靛蓝绿色配色） ===== */
 :root {
-  --color-primary: #41B883;
-  --color-primary-hover: #2F9A66;
-  --color-primary-light: #E6F7EE;
+  --color-primary: #3451b2;
+  --color-primary-hover: #3a5ccc;
+  --color-primary-light: rgba(100, 108, 255, 0.14);
 
-  --text-primary: #0F1724;
-  --text-secondary: #425066;
-  --text-light: #6B7885;
-  --text-inverse: #FFFFFF;
+  --text-primary: #3c3c43;
+  --text-secondary: #67676c;
+  --text-light: #929295;
+  --text-inverse: #ffffff;
 
-  --bg-page: #FAFBFC;
-  --bg-card: #FFFFFF;
-  --bg-hover: #F3F7F5;
-  --bg-input: #FFFFFF;
+  --bg-page: #ffffff;
+  --bg-card: #ffffff;
+  --bg-hover: #f6f6f7;
+  --bg-input: #ffffff;
 
-  --border-color: #E6EEF0;
-  --border-color-hover: #CFE6DA;
+  --border-color: #e2e2e3;
+  --border-color-hover: #c2c2c4;
 
-  --shadow-sm: 0 1px 2px rgba(15,23,36,0.04);
-  --shadow-md: 0 4px 12px rgba(15,23,36,0.06);
-  --shadow-lg: 0 8px 24px rgba(15,23,36,0.08);
-  --shadow-soft: 0 2px 8px rgba(15,23,36,0.06);
+  --shadow-sm: 0 1px 2px rgba(60,60,67,0.04);
+  --shadow-md: 0 4px 12px rgba(60,60,67,0.06);
+  --shadow-lg: 0 8px 24px rgba(60,60,67,0.08);
+  --shadow-soft: 0 2px 8px rgba(60,60,67,0.06);
 
-  --btn-primary-bg: #0F1724;
-  --btn-primary-text: #FFFFFF;
-  --btn-primary-hover: #0B1320;
+  --btn-primary-bg: #3451b2;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #3a5ccc;
 
-  --btn-secondary-bg: #41B883;
-  --btn-secondary-text: #FFFFFF;
-  --btn-secondary-hover: #369A6F;
+  --btn-secondary-bg: #30a46c;
+  --btn-secondary-text: #ffffff;
+  --btn-secondary-hover: #299764;
 
-  --tag-bg: #E6F7EE;
-  --tag-text: #145A3B;
+  --tag-bg: rgba(16, 185, 129, 0.14);
+  --tag-text: #18794e;
 
-  --download-bg: #E6F7EE;
-  --download-text: #145A3B;
-  --download-hover: #CFE6DA;
+  --download-bg: rgba(16, 185, 129, 0.14);
+  --download-text: #18794e;
+  --download-hover: rgba(16, 185, 129, 0.2);
 
-  --explore-bg: #F3F4F6;
-  --explore-text: #0F1724;
-  --explore-hover: #E5E7EB;
+  --explore-bg: #f6f6f7;
+  --explore-text: #3c3c43;
+  --explore-hover: #e4e4e9;
 
-  --shadow-hover: 0 2px 8px rgba(15,23,36,0.06);
-  --shadow-light: 0 1px 4px rgba(15,23,36,0.04);
+  --shadow-hover: 0 2px 8px rgba(60,60,67,0.06);
+  --shadow-light: 0 1px 4px rgba(60,60,67,0.04);
 
-  --liuli-text-color: #41B883;
+  --liuli-text-color: #3451b2;
   --transition-smooth: all 0.2s ease-in-out;
   --bg-white: var(--bg-card);
-  --icon-grad-start: #DBEAFE;
-  --icon-grad-end: #BFDBFE;
-  --dark-icon-grad-start: #1E3A8A;
-  --dark-icon-grad-end: #1F2937;
-  --tool-icon-color: var(--liuli-text-color);
-  --focus-ring: rgba(15,23,42,0.06);
-  --focus-ring-strong: rgba(15,23,42,0.12);
+  --icon-grad-start: #dbeafe;
+  --icon-grad-end: #bfdbfe;
+  --dark-icon-grad-start: #1e3a8a;
+  --dark-icon-grad-end: #1f2937;
+  --tool-icon-color: #3451b2;
+  --focus-ring: rgba(60,60,67,0.06);
+  --focus-ring-strong: rgba(60,60,67,0.12);
 }
 
 /* 深色模式 - 现代高级配色 */
 .dark {
-  --color-primary: #4FD97A;
-  --color-primary-hover: #3CB864;
-  --color-primary-light: #10312A;
+  --color-primary: #a8b1ff;
+  --color-primary-hover: #5c73e7;
+  --color-primary-light: rgba(100, 108, 255, 0.16);
 
-  --text-primary: #F0F4F8;
-  --text-secondary: #A0A8B2;
-  --text-light: #6F7A88;
-  --text-inverse: #0B1220;
+  --text-primary: #dfdfd6;
+  --text-secondary: #98989f;
+  --text-light: #6a6a71;
+  --text-inverse: #ffffff;
 
-  --bg-page: #0A0F19;
-  --bg-card: #0E1419;
-  --bg-hover: #121821;
-  --bg-input: #0E1419;
+  --bg-page: #1b1b1f;
+  --bg-card: #202127;
+  --bg-hover: #161618;
+  --bg-input: #202127;
 
-  --border-color: #1A2230;
-  --border-color-hover: #2A3644;
+  --border-color: #3c3f44;
+  --border-color-hover: #414853;
 
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
   --shadow-md: 0 6px 16px rgba(0,0,0,0.5);
   --shadow-lg: 0 10px 30px rgba(0,0,0,0.6);
   --shadow-soft: 0 2px 8px rgba(0,0,0,0.3);
 
-  --btn-primary-bg: #4FD97A;
-  --btn-primary-text: #0B1220;
-  --btn-primary-hover: #3CB864;
+  --btn-primary-bg: #a8b1ff;
+  --btn-primary-text: #1b1b1f;
+  --btn-primary-hover: #5c73e7;
 
-  --btn-secondary-bg: #4FD97A;
-  --btn-secondary-text: #0B1220;
-  --btn-secondary-hover: #3CB864;
+  --btn-secondary-bg: #3dd68c;
+  --btn-secondary-text: #1b1b1f;
+  --btn-secondary-hover: #30a46c;
 
-  --tag-bg: #1A2F28;
-  --tag-text: #7FE8B8;
+  --tag-bg: rgba(16, 185, 129, 0.16);
+  --tag-text: #3dd68c;
 
-  --download-bg: #1A2F28;
-  --download-text: #7FE8B8;
-  --download-hover: #234035;
+  --download-bg: rgba(16, 185, 129, 0.16);
+  --download-text: #3dd68c;
+  --download-hover: rgba(16, 185, 129, 0.24);
 
-  --explore-bg: #121821;
-  --explore-text: #F0F4F8;
-  --explore-hover: #1A2230;
+  --explore-bg: #202127;
+  --explore-text: #dfdfd6;
+  --explore-hover: #32363f;
 
-  --shadow-hover: 0 4px 12px rgba(79,217,122,0.15);
+  --shadow-hover: 0 4px 12px rgba(168,177,255,0.15);
   --shadow-light: 0 1px 4px rgba(0,0,0,0.2);
 
-  --liuli-text-color: #4FD97A;
+  --liuli-text-color: #a8b1ff;
   --bg-white: var(--bg-card);
-  --icon-grad-start: #1A4D2E;
-  --icon-grad-end: #0E1419;
-  --dark-icon-grad-start: #1A4D2E;
-  --dark-icon-grad-end: #0E1419;
-  --tool-icon-color: #4FD97A;
-  --focus-ring: rgba(79,217,122,0.15);
-  --focus-ring-strong: rgba(79,217,122,0.25);
+  --icon-grad-start: #1e3a8a;
+  --icon-grad-end: #1f2937;
+  --dark-icon-grad-start: #1e3a8a;
+  --dark-icon-grad-end: #1f2937;
+  --tool-icon-color: #a8b1ff;
+  --focus-ring: rgba(168,177,255,0.15);
+  --focus-ring-strong: rgba(168,177,255,0.25);
 }
 
 body {
