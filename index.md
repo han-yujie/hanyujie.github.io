@@ -225,12 +225,12 @@ features: []  # 清空原有features，防止显示默认内容
   --btn-secondary-text: #ffffff;
   --btn-secondary-hover: #299764;
 
-  --tag-bg: rgba(16, 185, 129, 0.14);
-  --tag-text: #18794e;
+  --tag-bg: rgba(100, 108, 255, 0.14);
+  --tag-text: #3451b2;
 
-  --download-bg: rgba(16, 185, 129, 0.14);
-  --download-text: #18794e;
-  --download-hover: rgba(16, 185, 129, 0.2);
+  --download-bg: #f6f6f7;
+  --download-text: #3c3c43;
+  --download-hover: #e4e4e9;
 
   --explore-bg: #f6f6f7;
   --explore-text: #3c3c43;
@@ -283,12 +283,12 @@ features: []  # 清空原有features，防止显示默认内容
   --btn-secondary-text: #1b1b1f;
   --btn-secondary-hover: #30a46c;
 
-  --tag-bg: rgba(16, 185, 129, 0.16);
-  --tag-text: #3dd68c;
+  --tag-bg: rgba(100, 108, 255, 0.16);
+  --tag-text: #a8b1ff;
 
-  --download-bg: rgba(16, 185, 129, 0.16);
-  --download-text: #3dd68c;
-  --download-hover: rgba(16, 185, 129, 0.24);
+  --download-bg: #6f42c1;
+  --download-text: #ffffff;
+  --download-hover: #7e4cc9;
 
   --explore-bg: #202127;
   --explore-text: #dfdfd6;
