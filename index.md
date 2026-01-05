@@ -302,8 +302,8 @@ features: []  # 清空原有features，防止显示默认内容
   --tag-text: #a8b1ff;
 
   --download-bg: #6f42c1;
-  --download-text: #ffffff;
-  --download-hover: #7e4cc9;
+  --download-text: #a8b1ff;
+  --download-hover: #5c73e7;
 
   --explore-bg: #202127;
   --explore-text: #dfdfd6;
