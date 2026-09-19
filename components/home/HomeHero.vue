@@ -1,7 +1,6 @@
 <script setup>
 import BaseButton from '../BaseButton.vue'
 import DotField from './DotField.vue'
-import profile from '../../.shared/content/profile.json'
 </script>
 
 <template>
@@ -22,7 +21,6 @@ import profile from '../../.shared/content/profile.json'
 
     <div class="home-hero__inner">
       <div class="home-hero__content">
-        <p class="home-hero__intro">我是{{ profile.name }} · 商业视觉设计师</p>
         <h1 class="hero-fade-in-item" style="--hero-delay: 0ms">
           <span class="h1-line">商业视觉设计与 AI 实践</span>
           <span class="h1-line h1-accent"><span>把项目经验，</span><span>变成可复用的方法</span></span>
