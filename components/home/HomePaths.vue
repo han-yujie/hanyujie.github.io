@@ -1,157 +1,35 @@
 <script setup>
-import SectionShell from '../SectionShell.vue'
-
+import { PhImages, PhFlowArrow, PhBooks, PhArrowUpRight } from '@phosphor-icons/vue'
 const paths = [
-  {
-    key: 'outcomes',
-    title: '视觉与内容系统',
-    desc: '查看品牌、产品与商业视觉的最终成果，以及它们服务的传播目标。',
-    href: '/portfolio/',
-    label: '查看代表作品 →',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>`
-  },
-  {
-    key: 'process',
-    title: 'AI 与动态生产',
-    desc: '查看需求如何拆解、变量如何控制，以及静态与动态内容如何稳定交付。',
-    href: '/aigc/',
-    label: '探索生产流程 →',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`
-  },
-  {
-    key: 'accumulation',
-    title: '知识与效率资产',
-    desc: '查看研究笔记、方法指南、工具、模板和进入下一次项目的验证资源。',
-    href: '/knowledge/',
-    label: '进入知识系统 →',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5v-15z"></path></svg>`
-  }
+  { title: '作品集', desc: '品牌与产品视觉', href: '/portfolio/', icon: PhImages },
+  { title: '工作流', desc: '项目过程与方法', href: '/aigc/', icon: PhFlowArrow },
+  { title: '知识库', desc: '研究、方法与工具', href: '/knowledge/', icon: PhBooks }
 ]
 </script>
-
 <template>
-  <SectionShell id="home-paths" compact>
-    <div class="paths-grid">
-      <a
-        v-for="(path, index) in paths"
-        :key="path.key"
-        :href="path.href"
-        class="path-card"
-        v-reveal="{ delay: index * 70, y: 24, repeat: true }"
-      >
-        <div class="path-card__icon" v-html="path.icon" />
-        <div class="path-card__content">
-          <h3>{{ path.title }}</h3>
-          <p>{{ path.desc }}</p>
-          <strong class="path-card__cta">{{ path.label }}</strong>
-        </div>
-      </a>
-    </div>
-  </SectionShell>
+  <nav id="home-paths" class="home-paths" aria-label="探索本站">
+    <a v-for="path in paths" :key="path.href" :href="path.href" class="path-link">
+      <component :is="path.icon" :size="24" aria-hidden="true" />
+      <span><strong>{{ path.title }}</strong><small>{{ path.desc }}</small></span>
+      <PhArrowUpRight :size="18" class="path-link__arrow" aria-hidden="true" />
+    </a>
+  </nav>
 </template>
-
 <style scoped>
-.paths-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.path-card {
-  display: flex;
-  flex-direction: column;
-  padding: 36px;
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius-card);
-  background: var(--bg-card);
-  color: inherit;
-  text-decoration: none;
-  transition:
-    opacity var(--reveal-duration, 700ms) cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter var(--reveal-duration, 700ms) cubic-bezier(0.2, 0.7, 0.2, 1),
-    transform var(--reveal-duration, 700ms) cubic-bezier(0.2, 0.7, 0.2, 1),
-    border-color var(--transition-smooth),
-    box-shadow var(--transition-smooth);
-  transition-delay: var(--reveal-delay, 0ms);
-}
-
-.path-card:hover {
-  border-color: color-mix(in srgb, var(--brand-main) 35%, transparent);
-  box-shadow: var(--shadow-card);
-  transform: translateY(-4px);
-}
-
-.path-card__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border: 1px solid var(--border-soft);
-  border-radius: 12px;
-  background: var(--bg-soft);
-  color: var(--brand-main);
-  margin-bottom: 24px;
-  transition: background-color var(--transition-smooth), color var(--transition-smooth);
-}
-
-.path-card:hover .path-card__icon {
-  background: var(--brand-main);
-  color: var(--button-primary-text);
-  border-color: var(--brand-main);
-}
-
-.path-card__icon :deep(svg) {
-  width: 24px;
-  height: 24px;
-}
-
-h3 {
-  margin: 0;
-  color: var(--text-main);
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-p {
-  margin: 12px 0 0;
-  color: var(--text-sub);
-  font-size: var(--text-small);
-  line-height: 1.7;
-  flex: 1;
-}
-
-.path-card__cta {
-  display: inline-block;
-  margin-top: 24px;
-  color: var(--brand-main);
-  font-size: var(--text-small);
-  font-weight: 600;
-}
-
-@media (max-width: 900px) {
-  .paths-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .path-card {
-    display: grid;
-    grid-template-columns: 52px minmax(0, 1fr);
-    gap: 20px;
-    padding: 24px;
-  }
-  .path-card__icon { margin-bottom: 0; }
-  .path-card__cta { margin-top: 16px; }
-}
-
-@media (max-width: 480px) {
-  .path-card {
-    grid-template-columns: 44px minmax(0, 1fr);
-    gap: 16px;
-    padding: 22px 20px;
-  }
-  .path-card__icon { width: 44px; height: 44px; }
+.home-paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: min(var(--page-width), calc(100% - 48px)); margin: 0 auto; padding: 20px 0; border-block: 1px solid var(--border-soft); }
+.path-link { display: flex; min-width: 0; align-items: center; gap: 16px; padding: 8px 28px; color: var(--brand-main); text-decoration: none; border-radius: var(--radius-control); transition: background-color 180ms; }
+.path-link + .path-link { border-left: 1px solid var(--border-soft); }
+.path-link:hover, .path-link:focus-visible { background: var(--bg-soft); }
+.path-link > svg { flex-shrink: 0; }
+.path-link span { min-width: 0; }
+.path-link strong { display: block; color: var(--text-main); font: 600 20px/1.4 var(--font-display); }
+.path-link small { display: block; margin-top: 5px; color: var(--text-sub); font-size: 14px; line-height: 1.6; }
+.path-link__arrow { margin-left: auto; }
+@media(max-width: 700px) {
+  .home-paths { width: calc(100% - 32px); padding: 14px 0; }
+  .path-link { justify-content: center; flex-direction: column; gap: 8px; padding: 8px 4px; text-align: center; }
+  .path-link strong { font-size: 18px; }
+  .path-link small { font-size: 12px; }
+  .path-link__arrow { display: none; }
 }
 </style>

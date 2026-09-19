@@ -150,7 +150,7 @@ onUnmounted(() => {
     <nav
       id="site-navigation"
       class="site-header__nav"
-      aria-label="Site navigation"
+      aria-label="主导航"
       @mouseleave="scheduleNavReset"
     >
       <template v-for="item in navItems" :key="item.text">
@@ -204,13 +204,13 @@ onUnmounted(() => {
           {{ item.text }}
         </a>
       </template>
-      <a class="site-header__mobile-contact" href="mailto:1442855983@qq.com">联系合作</a>
+      <a class="site-header__mobile-contact" href="mailto:1442855983@qq.com">联系我</a>
     </nav>
 
     <div class="site-header__actions">
       <SiteSearch @open-change="searchOpen = $event" />
       <ThemeToggle />
-      <a class="site-header__contact" href="mailto:1442855983@qq.com">联系合作</a>
+      <a class="site-header__contact" href="mailto:1442855983@qq.com">联系我</a>
       <button
         class="site-header__menu-button"
         type="button"
@@ -502,7 +502,8 @@ onUnmounted(() => {
   .site-header--search-open .site-header__menu-button { display: none; }
 
   .site-header--search-open { grid-template-columns: 1fr; }
-  .site-header--search-open .site-header__actions { width: 100%; }
+  .site-header--search-open .site-header__actions { width: 100%; min-width: 0; }
+  .site-header--search-open .site-header__actions :deep(.theme-toggle) { flex: 0 0 44px; }
 }
 
 @media (max-width: 560px) {

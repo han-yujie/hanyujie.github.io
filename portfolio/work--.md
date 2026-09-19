@@ -1,12 +1,14 @@
 ---
 contentId: dbb73530-d8ce-4708-9aa7-f56b368f2b35
 meta:
-  title: AI+三维渲染工业产品作品合集
-  description: 工作中的少部分产品经过AI+三维渲染输出的部分作品
+  title: "工业产品视觉作品集"
+  description: "结合三维渲染与 AI 图像处理，展示工作中的工业产品视觉实践。"
+  tags: ["工业产品","三维渲染","AI设计"]
 cover:
   src: /images/uploads/案例板块图片/模型AI修图/1-14.jpg
   focalPoint: center
   homeOverrideSrc: /images/uploads/案例板块图片/模型AI修图/1-14.jpg
+  alt: "工业产品视觉作品集"
 content: '<p>aiosdhfa </p><p></p><img
   src="/images/uploads/%E6%A1%88%E4%BE%8B%E6%9D%BF%E5%9D%97%E5%9B%BE%E7%89%87/%E5%8C%97%E9%A3%9F%E5%88%BB%E5%93%81%E7%89%8C%E8%AE%BE%E8%AE%A1/10.jpg"><p>/</p><p>岁的法国<br></p><table
   style="min-width: 75px;"><colgroup><col style="min-width: 25px;"><col

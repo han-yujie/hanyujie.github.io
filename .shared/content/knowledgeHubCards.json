@@ -3,7 +3,7 @@
     {
       "id": "Research-Notes",
       "title": "研究笔记",
-      "description": "记录 AI、设计、产品与商业领域的观察、测试与结论。这里放趋势研究、工具对比、实验过程和阶段性判断，重点回答发生了什么、为什么重要、结论是否经得起验证。",
+      "description": "记录 AI 与设计中的观察、测试和阶段结论。",
       "link": "/knowledge/learning-observation",
       "linkLabel": "进入栏目",
       "tags": [
@@ -18,7 +18,7 @@
     {
       "id": "Methodological-Guide",
       "title": "方法指南",
-      "description": "把已经验证有效的做法整理成可复用指南。这里放判断标准、操作步骤、工作流程、Prompt 方法、检查表和常见错误，重点回答具体应该怎么做。",
+      "description": "整理验证过的步骤、判断标准与检查清单。",
       "link": "/knowledge/methods",
       "linkLabel": "进入栏目",
       "tags": [
@@ -32,7 +32,7 @@
     {
       "id": "Tools-and-Resources",
       "title": "工具与资源",
-      "description": "汇总可以直接用于学习或项目的软件、平台、插件、Prompt、模板、素材和下载文件。每项资源说明用途、适用对象、获取方式、使用限制与验证情况。",
+      "description": "整理工作中用到的软件、模板和素材，注明用途与获取方式。",
       "link": "/knowledge/resources",
       "linkLabel": "进入栏目",
       "tags": [

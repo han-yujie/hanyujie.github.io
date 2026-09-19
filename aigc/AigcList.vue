@@ -1,9 +1,9 @@
 <script setup>
 import OverviewPage from '../components/OverviewPage.vue'
 import { data as contentCatalog } from '../.shared/content.data.mjs'
-import { visibleContent } from '../.shared/contentClient.js'
+import { publishedContent } from '../.shared/contentClient.js'
 
-const items = visibleContent(contentCatalog.workflows).map((item) => ({
+const items = publishedContent(contentCatalog.workflows).map((item) => ({
   id: item.id,
   title: item.title,
   summary: item.desc,
@@ -26,7 +26,7 @@ const items = visibleContent(contentCatalog.workflows).map((item) => ({
     :topics="['需求输入', '变量拆解', '方向生成', '人工判断', '资产沉淀']"
     :show-hero="false"
     :items="items"
-    section-title="可复用工作流"
+    section-title="工作流"
     section-description="工作流页面记录可以直接进入下一次项目的结构、判断标准与交付方法。"
   />
 </template>

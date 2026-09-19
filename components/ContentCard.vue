@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import ImagePlaceholder from './ImagePlaceholder.vue'
+import { PhArticle } from '@phosphor-icons/vue'
 
 const props = defineProps({
   item: {
@@ -14,7 +15,7 @@ const isPublished = computed(() => props.item.status !== 'planned' && Boolean(pr
 
 <template>
   <article class="content-card" :class="{ 'content-card--planned': !isPublished }">
-    <a v-if="isPublished" class="content-card__media" :href="item.link" :aria-label="`进入：${item.title}`">
+    <a v-if="isPublished && item.image" class="content-card__media" :href="item.link" :aria-label="`进入：${item.title}`">
       <ImagePlaceholder
         :src="item.image || ''"
         :alt="item.alt || item.title"
@@ -26,7 +27,7 @@ const isPublished = computed(() => props.item.status !== 'planned' && Boolean(pr
         sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1100px) 50vw, 360px"
       />
     </a>
-    <div v-else class="content-card__media">
+    <div v-else-if="item.image" class="content-card__media">
       <ImagePlaceholder
         :src="item.image || ''"
         :alt="item.alt || item.title"
@@ -38,9 +39,10 @@ const isPublished = computed(() => props.item.status !== 'planned' && Boolean(pr
         sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1100px) 50vw, 360px"
       />
     </div>
+    <div v-else class="content-card__no-cover"><PhArticle :size="26" aria-hidden="true" /><span>{{ item.type || item.eyebrow || '文章与实践' }}</span></div>
     <div class="content-card__body">
       <span v-if="item.eyebrow" class="content-card__eyebrow">{{ item.eyebrow }}</span>
-      <h2>{{ item.title }}</h2>
+      <h2><a v-if="isPublished" :href="item.link">{{ item.title }}</a><template v-else>{{ item.title }}</template></h2>
       <p>{{ item.summary || item.desc }}</p>
       <div class="content-card__tags" aria-label="内容标签">
         <span v-for="tag in item.tags" :key="tag">{{ tag }}</span>
@@ -65,6 +67,9 @@ const isPublished = computed(() => props.item.status !== 'planned' && Boolean(pr
 .content-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-card); transform: translateY(-4px); }
 .content-card--planned:hover { border-color: var(--border-soft); box-shadow: none; transform: none; }
 .content-card__media { display: block; overflow: hidden; text-decoration: none; }
+.content-card__no-cover { display: flex; gap: 12px; align-items: center; padding: 28px 24px 0; color: var(--brand-main); font-size: 13px; }
+.content-card h2 a { color: inherit; text-decoration: none; }
+.content-card h2 a:hover { color: var(--brand-main); }
 .content-card__media :deep(.image-slot) { border: 0; border-bottom: 1px solid var(--border-soft); }
 .content-card__body { display: flex; min-height: 268px; flex: 1; flex-direction: column; padding: 26px 24px 28px; }
 .content-card__eyebrow { margin-bottom: 9px; color: var(--brand-main); font-size: 11px; font-weight: 700; letter-spacing: .08em; }

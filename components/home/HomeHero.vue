@@ -1,6 +1,7 @@
 <script setup>
 import BaseButton from '../BaseButton.vue'
 import DotField from './DotField.vue'
+import profile from '../../.shared/content/profile.json'
 </script>
 
 <template>
@@ -21,18 +22,19 @@ import DotField from './DotField.vue'
 
     <div class="home-hero__inner">
       <div class="home-hero__content">
+        <p class="home-hero__intro">我是{{ profile.name }} · 商业视觉设计师</p>
         <h1 class="hero-fade-in-item" style="--hero-delay: 0ms">
-          <span class="h1-line">把 AI 学习与设计实践</span>
-          <span class="h1-line h1-accent">沉淀为可复用的个人能力系统</span>
+          <span class="h1-line">商业视觉设计与 AI 实践</span>
+          <span class="h1-line h1-accent"><span>把项目经验，</span><span>变成可复用的方法</span></span>
         </h1>
 
         <p class="home-hero__lead hero-fade-in-item" style="--hero-delay: 100ms">
-          商业视觉设计师与 AI 全流程创作者，覆盖品牌、电商、三维、动态影像与数字化落地。
+          在这里分享我的品牌与产品作品、AI 项目工作流，以及持续整理的研究、方法和工具。
         </p>
 
         <div class="home-hero__actions hero-fade-in-item" style="--hero-delay: 200ms">
-          <BaseButton href="/portfolio/">查看实践作品</BaseButton>
-          <BaseButton href="/knowledge/" variant="secondary">进入知识系统</BaseButton>
+          <BaseButton href="/portfolio/">查看作品</BaseButton>
+          <BaseButton href="/aigc/" variant="secondary">探索工作流</BaseButton>
         </div>
       </div>
     </div>
@@ -48,9 +50,9 @@ import DotField from './DotField.vue'
 /* ─── Container ──────────────────────────────────────── */
 .home-hero {
   position: relative;
-  min-height: 760px;
+  min-height: 560px;
   overflow: hidden;
-  padding: 104px 24px 56px;
+  padding: 128px 24px 56px;
   background:
     radial-gradient(ellipse 60% 50% at 72% 22%, color-mix(in srgb, var(--brand-main) 9%, transparent), transparent),
     radial-gradient(ellipse 40% 40% at 18% 80%, color-mix(in srgb, var(--brand-main) 5%, transparent), transparent),
@@ -71,8 +73,9 @@ import DotField from './DotField.vue'
 .home-hero__inner {
   position: relative;
   z-index: 1;
-  width: min(760px, 100%);
-  min-height: 600px;
+  width: min(960px, 100%);
+  min-height: 376px;
+  min-width: 0;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -82,12 +85,14 @@ import DotField from './DotField.vue'
 }
 
 /* ─── Content ────────────────────────────────────────── */
+.home-hero__content { width: 100%; min-width: 0; }
+.home-hero__intro { margin: 0 0 22px; color: var(--brand-main); font-size: 16px; line-height: 1.7; }
 h1 {
   width: 100%;
   margin: 0;
   color: var(--text-main);
   font-family: var(--font-display);
-  font-size: 58px;
+  font-size: clamp(28px, 4.2vw, 56px);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.04em;
@@ -95,7 +100,9 @@ h1 {
 
 .h1-line {
   display: block;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .h1-accent {
@@ -106,6 +113,8 @@ h1 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.h1-accent > span { display: inline-block; }
 
 .home-hero__lead {
   max-width: 580px;
@@ -156,11 +165,11 @@ h1 {
 
 /* ─── Responsive ─────────────────────────────────────── */
 @media (max-width: 1020px) {
-  h1 { font-size: 48px; }
+  h1 { font-size: clamp(28px, 4.4vw, 44px); }
 }
 
 @media (max-width: 800px) {
-  .home-hero { padding: 96px 24px 48px; min-height: auto; }
+  .home-hero { padding: 112px 24px 40px; min-height: auto; }
   .home-hero__inner { min-height: auto; }
   .home-hero__scroll { display: none; }
 }
@@ -170,7 +179,8 @@ h1 {
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: clamp(23px, 7.4vw, 28px); letter-spacing: -0.055em; }
+  h1 { font-size: 30px; letter-spacing: -0.035em; line-height: 1.45; }
+  .home-hero__intro { margin-bottom: 16px; font-size: 14px; }
   .home-hero__lead { margin-top: 22px; }
 }
 

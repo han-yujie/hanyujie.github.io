@@ -36,10 +36,10 @@ import SectionShell from '../SectionShell.vue'
 
       <!-- Content -->
       <div class="cta-content">
-        <h2>从一个清晰的需求开始<br>把想法推进到可交付成果</h2>
-        <p class="cta-desc">无论是品牌视觉、产品内容、三维渲染、AI 视频，还是工作流与网站搭建，都可以从目标和使用场景开始讨论。</p>
+        <h2>交流项目，也交流 AI 实践</h2>
+        <p class="cta-desc">欢迎聊聊品牌与产品视觉、AI 工作流，或分享你在设计实践中遇到的问题。</p>
         <div class="cta-actions">
-          <BaseButton href="mailto:1442855983@qq.com?subject=项目合作方向沟通">讨论合作方向</BaseButton>
+          <BaseButton href="mailto:1442855983@qq.com?subject=项目与AI实践交流">联系我</BaseButton>
           <BaseButton href="/portfolio/" variant="secondary">查看完整作品集</BaseButton>
         </div>
       </div>

@@ -13,6 +13,7 @@ const wechatQr = '/wechat.png'
 const qqQr = '/qq.png'
 
 let scrollFrame = 0
+let restoringContactFocus = false
 
 const updateBackToTop = () => {
   showBackToTop.value = window.scrollY > 480
@@ -31,7 +32,8 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })
 }
 
-const showContactPreview = () => {
+const showContactPreview = (event) => {
+  if (restoringContactFocus && event?.type === 'focusin') return
   contactQrMounted.value = true
   contactOpen.value = true
 }
@@ -64,7 +66,9 @@ const onKeydown = (event) => {
   if (event.key !== 'Escape' || !contactOpen.value) return
   event.preventDefault()
   closeContactPreview()
+  restoringContactFocus = true
   contactGroupRef.value?.querySelector('button')?.focus()
+  restoringContactFocus = false
 }
 
 watch(() => route.path, closeContactPreview)
@@ -96,10 +100,10 @@ onUnmounted(() => {
     <button
       class="floating-control floating-control--service"
       type="button"
-      aria-label="联系客服"
+      aria-label="联系我"
       :aria-expanded="contactOpen"
       aria-controls="customer-contact-preview"
-      title="联系客服"
+      title="联系我"
       @click="toggleContactPreview"
     >
       <svg class="floating-service__icon" viewBox="0 0 1024 1024" aria-hidden="true">

@@ -634,3 +634,12 @@ body.ai-lab-home .VPHome { margin-bottom: 0 !important; }
   .content-resource-card { grid-template-columns: 1fr; }
   .content-resource-card__cover { aspect-ratio: 16 / 9; }
 }
+.workflow-brief {
+  margin: 0 0 28px;
+  padding: 18px 22px;
+  border-left: 3px solid var(--brand-main);
+  background: var(--bg-soft);
+  border-radius: 0 var(--radius-control) var(--radius-control) 0;
+}
+.workflow-brief p { margin: 6px 0; font-size: 14px; line-height: 1.8; }
+.workflow-brief strong { color: var(--text-main); margin-right: 8px; }

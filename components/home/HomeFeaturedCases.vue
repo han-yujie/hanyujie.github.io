@@ -18,8 +18,8 @@ const caseWall = useStackWall('.case-wall__card')
   <SectionShell id="featured-cases" compact>
     <div class="case-wall__head" v-reveal="{ y: 24, repeat: true }">
       <SectionHeader
-        :title-lines="['先看结果', '再理解它为什么成立']"
-        desc="从品牌视觉到三维渲染，代表作品先呈现最终成果，动态内容继续补充画面在时间维度中的表达。"
+        :title-lines="['精选作品']"
+        desc="从品牌设计到工业产品视觉，看看我如何把想法推进到实际交付。"
       />
       <BaseButton href="/portfolio/" variant="ghost">查看完整作品集</BaseButton>
     </div>
