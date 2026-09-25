@@ -1,9 +1,9 @@
 <script setup>
 import OverviewPage from '../components/OverviewPage.vue'
 import { data as contentCatalog } from '../.shared/content.data.mjs'
-import { visibleContent } from '../.shared/contentClient.js'
+import { publishedContent } from '../.shared/contentClient.js'
 
-const source = visibleContent(contentCatalog.resources)
+const source = publishedContent(contentCatalog.resources)
 const items = source.map((item) => ({
   id: item.id,
   title: item.title,
@@ -28,7 +28,8 @@ const items = source.map((item) => ({
     :topics="['软件', 'AI 工具', '插件', 'Prompt', '模板', '下载']"
     :show-hero="false"
     :items="items"
-    section-title="全部工具与资源"
+    section-title="工具与资源"
+    empty-description="目前还没有公开的工具条目或下载文件。先看看我在实际项目中如何使用 AI 与设计工具。"
     section-description="每项资源都会说明用途、适用对象、获取方式、使用限制与验证情况；正版软件跳转官网，自制模板与文件提供合规下载。"
   />
 </template>

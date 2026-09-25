@@ -23,7 +23,7 @@
   "hero": {
     "greeting": "Hello，我是",
     "title": "商业视觉设计师与 AI 全流程创作者",
-    "description": "从产品理解出发，把平面、摄影、3D、AIGC、视频与页面落地连接成完整交付",
+    "description": "从产品理解到视觉交付，结合平面、摄影、3D、AI 与视频完成项目。",
     "portrait": "/images/uploads/关于我/portrait-cutout-cropped.png",
     "portraitAlt": "个人形象照片"
   },
@@ -118,8 +118,8 @@
     ]
   },
   "delivery": {
-    "title": "我如何把能力连成一次完整交付",
-    "description": "从素材建立、视觉生产到最终落地，每一项能力都对应明确的工作位置。",
+    "title": "从素材到交付",
+    "description": "根据项目需要，把工作台里的能力用在对应环节。",
     "stages": [
       {
         "title": "素材建立",
@@ -173,7 +173,7 @@
   },
   "resume": {
     "title": "职业履历",
-    "description": "不罗列过时经历，只保留与当前能力最相关的工作、项目和可验证成果。",
+    "description": "商业视觉、电商内容与项目交付的工作经历。",
     "metrics": [
       {
         "icon": "experience",
@@ -226,7 +226,7 @@
         "统一视觉形象获得客户认可，并为 500 余条现场线索及后续业务转化提供支持。"
       ]
     },
-    "skillsTitle": "能力不是进度条，而是经过项目验证的组合",
+    "skillsTitle": "核心能力",
     "skills": [
       {
         "title": "商业视觉",

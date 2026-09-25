@@ -9,6 +9,7 @@ const router = useRouter()
 const isOpen = ref(false)
 const query = ref('')
 const inputRef = ref(null)
+const triggerRef = ref(null)
 const rootRef = ref(null)
 const selectedIndex = ref(0)
 
@@ -43,11 +44,12 @@ const openSearch = async () => {
   inputRef.value?.focus()
 }
 
-const closeSearch = () => {
+const closeSearch = (restoreFocus = false) => {
   isOpen.value = false
   emit('open-change', false)
   query.value = ''
   selectedIndex.value = 0
+  if (restoreFocus) nextTick(() => triggerRef.value?.focus())
 }
 
 const normalizeText = (value) => String(value || '').toLowerCase()
@@ -120,7 +122,7 @@ const goToResult = async (result = results.value[selectedIndex.value]) => {
 
 const onKeydown = (event) => {
   if (event.key === 'Escape') {
-    closeSearch()
+    closeSearch(true)
     return
   }
   if (!results.value.length) return
@@ -155,6 +157,7 @@ onUnmounted(() => {
   <div ref="rootRef" class="site-search" :class="{ 'site-search--open': isOpen }">
     <button
       v-if="!isOpen"
+      ref="triggerRef"
       class="site-search__icon"
       type="button"
       :aria-label="labels.open"
@@ -181,7 +184,7 @@ onUnmounted(() => {
         type="button"
         :aria-label="labels.close"
         :title="labels.close"
-        @click="closeSearch"
+        @click="closeSearch(true)"
         v-html="closeIcon"
       />
       <div v-if="trimmedQuery" class="site-search__panel">
@@ -209,6 +212,7 @@ onUnmounted(() => {
 
 <style scoped>
 .site-search {
+  --search-surface: #fffdfa;
   position: relative;
   flex: 0 0 auto;
 }
@@ -254,11 +258,12 @@ onUnmounted(() => {
   height: 38px;
   border: 1px solid color-mix(in srgb, var(--border-strong), transparent 28%);
   border-radius: var(--radius-control);
-  background: color-mix(in srgb, var(--nav-bg-strong), transparent 38%);
+  background: var(--search-surface);
   box-shadow: 0 16px 42px rgba(23, 19, 15, 0.10);
 }
 
 :global(html.dark) .site-search__form {
+  --search-surface: #17181b;
   box-shadow: 0 16px 46px rgba(0, 0, 0, 0.26);
 }
 
@@ -323,7 +328,7 @@ onUnmounted(() => {
   padding: 8px;
   border: 1px solid color-mix(in srgb, var(--border-strong), transparent 30%);
   border-radius: var(--radius-card);
-  background: color-mix(in srgb, var(--nav-bg-strong), transparent 36%);
+  background: var(--search-surface);
   box-shadow: 0 26px 72px rgba(23, 19, 15, 0.13);
 }
 
@@ -400,11 +405,12 @@ onUnmounted(() => {
   .site-search--open {
     position: static;
     min-width: 0;
-    flex: 1 1 auto;
+    flex: 1 1 0;
   }
 
   .site-search__form {
     width: 100%;
+    box-sizing: border-box;
   }
 
   .site-search__panel {

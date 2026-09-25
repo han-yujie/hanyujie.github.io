@@ -17,8 +17,8 @@ const items = publishedContent(contentCatalog.cases)
   alt: item.coverAlt,
   imageSubject: `${item.title}的项目主视觉或最终交付成果`,
   imageFilename: item.imageFilename,
-  eyebrow: '作品方向',
-  cta: '进入作品合集'
+  eyebrow: '项目与作品',
+  cta: '查看完整作品'
 }))
 </script>
 
@@ -30,7 +30,7 @@ const items = publishedContent(contentCatalog.cases)
     :topics="['电商视觉', '展会视觉', '品牌系统', '3D 渲染', '转化设计']"
     :show-hero="false"
     :items="items"
-    section-title="作品方向"
-    section-description="每张卡片对应一个独立作品合集；进入后可连续浏览该方向的完整视觉成果。"
+    section-title="作品集"
+    section-description="品牌设计、工业产品与电商视觉。进入项目，查看完整作品和交付内容。"
   />
 </template>

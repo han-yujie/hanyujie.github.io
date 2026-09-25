@@ -21,6 +21,7 @@ const stripFrontmatter = (src) => src.replace(/^---[\s\S]*?---\s*/, '')
 
 const stripMarkdown = (src) =>
   src
+    .replace(/<!--[\s\S]*?-->/g, ' ')
     .replace(/```[\s\S]*?```/g, ' ')
     .replace(/<script setup>[\s\S]*?<\/script>/g, ' ')
     .replace(/<[^>]+>/g, ' ')
@@ -73,7 +74,7 @@ export default createContentLoader('**/*.md', {
   transform(data) {
     return data
       .filter((page) => page.url && page.src)
-      .filter((page) => page.url !== '/design-qa')
+      .filter((page) => !['/design-qa', '/CONTENT-MANAGEMENT', '/OSS-IMAGE-SETUP', '/CLOUDFLARE-SETUP', '/public/images/uploads/README'].includes(normalizeSearchUrl(page.url)))
       .filter((page) => !page.url.startsWith('/blog/') && !page.url.startsWith('/resources/'))
       .filter((page) => !['draft', 'planned', 'archived'].includes(getPageStatus(page.frontmatter)))
       .filter((page) => page.frontmatter?.search !== false)

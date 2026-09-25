@@ -5,11 +5,11 @@ import SectionHeader from '../SectionHeader.vue'
 import SectionShell from '../SectionShell.vue'
 import SvgWorkflowStep from './svg/SvgWorkflowStep.vue'
 import { data as contentCatalog } from '../../.shared/content.data.mjs'
-import { normalizeHomeSelections, resolveVisibleSelections } from '../../.shared/contentClient.js'
+import { normalizeHomeSelections, resolveSelections } from '../../.shared/contentClient.js'
 import homeSelectionsRaw from '../../.shared/content/home.json'
 
 const homeSelections = normalizeHomeSelections(homeSelectionsRaw)
-const featuredWorkflows = resolveVisibleSelections(
+const featuredWorkflows = resolveSelections(
   contentCatalog.workflows,
   homeSelections.featuredWorkflows,
   3
@@ -58,8 +58,8 @@ const paradigms = [
   <SectionShell id="workflow" tone="soft">
     <div class="wf-head" v-reveal="{ y: 24, repeat: true }">
       <SectionHeader
-        :title-lines="['由实践驱动的五阶段工作流', '让 AI 生产进入确定性轨道']"
-        desc="从需求输入、变量拆解、方向生成，到人工判断与资产化沉淀，把每次任务整理为可以重复执行的交付流程。"
+        :title-lines="['从需求到交付的五个阶段']"
+        desc="先理解产品，再控制生成，最后由人工判断和精修。真实项目中的过程，整理在下面的工作流里。"
       />
       <BaseButton href="/aigc/" variant="ghost">探索完整工作流</BaseButton>
     </div>
@@ -101,7 +101,7 @@ const paradigms = [
           v-reveal="{ delay: index * 70, y: 22, repeat: true }"
         >
           <a
-            v-if="item.link"
+            v-if="item.link && item.homeCover"
             class="wf-example__media"
             :href="item.link"
             :aria-label="`进入工作流：${item.title}`"

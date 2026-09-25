@@ -2,7 +2,7 @@
 contentId: 3b346090-470d-48a6-aba6-c9b910769816
 meta:
   title: AI 产品海报图批量生成流程
-  description: 做了个AI工作流，把公司全年要用的海报，一次搞定了...
+  description: "以二十四节气海报为例，记录从品牌规范、创意策划到批量生成与筛选的完整流程。"
   tags:
     - 产品图
     - 批量生成
@@ -19,8 +19,12 @@ cover:
   homeOverrideSrc: /images/uploads/工作流板块图片/AI 产品海报图批量生成流程/封面2.jpg
 seo:
   title: AI 产品海报图批量生成流程
-  description: 做了个AI工作流，把公司全年要用的海报，一次搞定了...
+  description: "以二十四节气海报为例，记录从品牌规范、创意策划到批量生成与筛选的完整流程。"
 contentBlocks:
+  - type: richText
+    id: 60bc8269-2a41-4db8-8a2e-1ab05229f96c
+    format: html
+    html: <div class="workflow-brief"><p><strong>适用场景</strong> 节日与节气系列海报</p><p><strong>开始前准备</strong> 品牌资料、产品图、视觉参考与节气清单</p><p><strong>如何使用</strong> 形成统一的视觉规则与海报创意，生成后逐张筛选和校准。</p></div>
   - type: richText
     id: c7b8ee84-2946-4a02-98c2-5d03b66d8728
     format: html

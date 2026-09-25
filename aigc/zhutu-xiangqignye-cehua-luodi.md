@@ -1,8 +1,8 @@
 ---
 contentId: 2b7f85b9-98f6-416e-b334-143711834901
 meta:
-  title: 从产品资料到整套视觉落地，是怎么一步步做出来的！
-  description: 本文以 GTS200 为例，记录从资料理解、AI 提炼卖点、主图与详情页策划，到多轮出图、逐张优化和最终统一文案规范的完整落地过程。
+  title: "GTS200 产品主图与详情页工作流"
+  description: "以 GTS200 为例，记录资料理解、卖点提炼、页面策划、出图优化与统一文案的过程。"
   tags:
     - 电商
     - 视觉设计
@@ -17,7 +17,12 @@ cover:
   focalPoint: center
   src: /images/uploads/工作流板块图片/GTS200工作流案例/2-1.jpg
   homeOverrideSrc: /images/uploads/工作流板块图片/GTS200工作流案例/2-1.jpg
+  alt: "GTS200 产品主图与详情页工作流"
 contentBlocks:
+  - type: richText
+    id: 9b9879a1-9600-4093-882a-a3a049f08179
+    format: html
+    html: <div class="workflow-brief"><p><strong>适用场景</strong> 工业产品主图与详情页</p><p><strong>开始前准备</strong> 产品资料、参数、实拍图与应用场景</p><p><strong>如何使用</strong> 按文中步骤推进策划、出图和精修，交付前核对型号、参数与文案。</p></div>
   - type: richText
     id: 2c3cc590-e6f0-4159-a124-41b6b74a4e61
     format: html
@@ -69,6 +74,6 @@ contentBlocks:
       AI 同时完成内容提炼和整体策划；方案确认以后逐张出图，最后统一完成文案和视觉规范。</strong></p></blockquote><p>这就是
       GTS200 从产品资料变成完整主图、详情页和宣传内容的实际过程。</p>
 seo:
-  title: GAIMC电商设计
-  description: GTS200工业品主图详情，利用AI从资料到落地
+  title: "GTS200 产品主图与详情页工作流"
+  description: "以 GTS200 为例，记录资料理解、卖点提炼、页面策划、出图优化与统一文案的过程。"
 ---

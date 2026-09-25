@@ -1,8 +1,8 @@
 ---
 contentId: 2e2425de-8c61-4aab-abd0-8084290387ad
 meta:
-  title: GMF系列产品从产品资料到整套视觉落地
-  description: 本内容主要是通过AI进行内容策划以及输出，ps进行最终的校准和交付；整个过程中最大的难点并不是策划和出图，最大的问题是怎么样才能在同一个详情体现三款产品，并且还要有主次。
+  title: "GMF 系列产品视觉设计"
+  description: "通过 AI 策划与出图、Photoshop 校准，完成三款 GMF 产品的主图与详情页，重点处理多产品的主次关系。"
   tags:
     - AI策划
     - AI设计
@@ -16,6 +16,7 @@ publishing:
 cover:
   src: /images/uploads/案例板块图片/GMF系列作品/43.png
   focalPoint: center
+  alt: "GMF 系列产品视觉设计"
 contentBlocks:
   - type: gallery
     id: 9ac35fb9-5a95-469e-ae2e-4efa26d190d1

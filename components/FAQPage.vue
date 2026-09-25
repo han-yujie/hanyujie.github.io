@@ -13,6 +13,7 @@ const questionsFor = (category) => items.filter((item) => item.category === cate
 
 <template>
   <div class="faq-page">
+    <h1 class="faq-page__title">常见问题</h1>
     <div class="faq-page__groups">
       <section v-for="category in categories" :id="category.id" :key="category.id" class="faq-group">
         <header>
@@ -46,6 +47,7 @@ const questionsFor = (category) => items.filter((item) => item.category === cate
 
 <style scoped>
 .faq-page { width: min(var(--page-width), 100%); margin-inline: auto; }
+.faq-page__title { margin: 0 0 36px; font: 600 34px/1.3 var(--font-display); color: var(--text-main); }
 .faq-page__groups { display: grid; gap: 64px; }
 .faq-group { scroll-margin-top: 110px; }
 .faq-group > header { display: grid; grid-template-columns: minmax(180px, .65fr) minmax(0, 1.35fr); gap: 40px; align-items: end; margin-bottom: 22px; }

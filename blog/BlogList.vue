@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import OverviewPage from '../components/OverviewPage.vue'
 import { data as contentCatalog } from '../.shared/content.data.mjs'
-import { visibleContent } from '../.shared/contentClient.js'
+import { publishedContent } from '../.shared/contentClient.js'
 
 const props = defineProps({
   title: { type: String, default: '方法指南' },
@@ -12,13 +12,13 @@ const props = defineProps({
 
 const source = computed(() => {
   const items = props.variant === 'industry' ? contentCatalog.learning : contentCatalog.methods
-  return visibleContent(items)
+  return publishedContent(items)
 })
 
 const items = computed(() => source.value.map((item) => ({
   id: item.id,
   title: item.title,
-  summary: item.summary,
+  summary: item.desc,
   link: item.link,
   status: item.status,
   tags: item.tags,
@@ -38,7 +38,7 @@ const items = computed(() => source.value.map((item) => ({
     :topics="variant === 'industry' ? ['趋势观察', '工具测试', '对比分析', '阶段结论'] : ['判断标准', '操作步骤', '工作流程', '检查表']"
     :show-hero="false"
     :items="items"
-    :section-title="variant === 'industry' ? '全部研究笔记' : '全部方法指南'"
+    :section-title="title"
     :section-description="description"
   />
 </template>
